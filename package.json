@@ -52,7 +52,7 @@
     "eslint-plugin-node": "^9.1.0",
     "husky": "^4.0.2",
     "jest": "^24.5.0",
-    "semantic-release": "^15.13.3",
+    "semantic-release": "^17.0.0",
     "yeoman-assert": "^3.1.1"
   },
   "config": {
