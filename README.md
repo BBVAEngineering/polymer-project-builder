@@ -45,10 +45,11 @@ The configuration file follows the [`polymer.json` specification](https://polyme
 
 #### Build options
 
-The `build` property in the configuration file accepts an object with the [same options for a build using `polymer build`](https://polymer-library.polymer-project.org/2.0/docs/tools/polymer-json#builds) plus two additional properties:
+The `build` property in the configuration file accepts an object with the [same options for a build using `polymer build`](https://polymer-library.polymer-project.org/2.0/docs/tools/polymer-json#builds) plus three additional properties:
 
 - `csp` (`Boolean`) Set to `true` to separate JavaScript from HTML. The generated JavaScript file will have the same name that the bundled file with `.js` extension.
 - `autoprefixer` (`Object`) An object with [autoprefixer options](https://github.com/postcss/autoprefixer#options) like `browsers`, `cascade`, etc.
+- `js.babel` (`Object`) An object with custom [options for Babel](https://babeljs.io/docs/en/options) transpilation. This option is only used when `csp` is `true`.
 
 #### Example configuration file
 
