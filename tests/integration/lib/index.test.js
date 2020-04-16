@@ -1,13 +1,13 @@
 'use strict';
 
 const fs = require('fs-extra');
-const path = require('path');
 const PolymerProjectBuilder = require('../../../lib/index');
 const assert = require('yeoman-assert');
 
 const CONFIG_MOCKS = {
-	basic: JSON.parse(fs.readFileSync(path.join(process.cwd(), 'tests/integration/fixtures/basic.json'))),
-	allOptions: JSON.parse(fs.readFileSync(path.join(process.cwd(), 'tests/integration/fixtures/all-options.json')))
+	basic: require('../fixtures/basic.js'),
+	allOptions: require('../fixtures/all-options.js'),
+	customBabel: require('../fixtures/custom-babel-options.js')
 };
 
 const TEST_TIMEOUT = 25000;
@@ -57,6 +57,22 @@ describe('PolymerProjectBuilder', () => {
 
 		it('generates a separate file with the bundled JavaScript', () => {
 			assert.file('dist/assets/bundled.js');
+		});
+	});
+
+	describe('With CSP and custom Babel config', () => {
+		beforeAll(async() => {
+			const instance = new PolymerProjectBuilder(CONFIG_MOCKS.customBabel);
+
+			await instance.build();
+		});
+
+		afterAll(() => {
+			fs.removeSync('dist');
+		});
+
+		it('applies the Babel config to JavaScript', () => {
+			assert.fileContent('dist/assets/bundled.js', 'BABEL_TEST');
 		});
 	});
 });

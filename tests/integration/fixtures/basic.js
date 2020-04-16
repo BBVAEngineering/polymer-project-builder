@@ -1,0 +1,17 @@
+module.exports = {
+	entrypoint: 'elements.html',
+	extraDependencies: [
+		'bower_components/webcomponentsjs/**'
+	],
+	moduleResolution: 'none',
+	dest: 'dist/assets',
+	build: {
+		js: {
+			minify: true,
+			compile: true
+		},
+		html: {
+			minify: true
+		}
+	}
+};
