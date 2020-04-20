@@ -32,7 +32,7 @@
     "fs-extra": "^8.1.0",
     "html-postcss": "^0.1.2",
     "merge-stream": "^2.0.0",
-    "polymer-build": "^3.1.2",
+    "polymer-build": "git+https://github.com/BBVAEngineering/polymer-build.git#v3.2.0",
     "vinyl-fs": "^3.0.3"
   },
   "devDependencies": {
